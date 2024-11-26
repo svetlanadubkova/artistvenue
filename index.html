@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StageMatch - Connect Musicians & Venues</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        :root {
+            --primary: #2B614D;
+            --secondary: #34795F;
+            --accent: #41916F;
+            --light: #F5F5F5;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: transparent;
+            position: absolute;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .nav-button {
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .nav-button.outline {
+            border: 2px solid white;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(43, 97, 77, 0.9), rgba(43, 97, 77, 0.9)),
+                        url("/api/placeholder/1920/1080") center/cover;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .search-container {
+            width: 100%;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 8px;
+            border: none;
+            font-size: 1rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 2rem 5%;
+            flex-wrap: wrap;
+        }
+
+        .category {
+            text-decoration: none;
+            color: var(--primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .category-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .recommended {
+            padding: 2rem 5%;
+        }
+
+        .recommended h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1rem;
+        }
+
+        .rating {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .categories {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="logo">StageMatch</a>
+        <div class="nav-right">
+            <a href="#" class="nav-button">Log in</a>
+            <a href="#" class="nav-button outline">List your venue</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Find Your Stage</h1>
+        <p>Connect with the perfect venue or discover amazing talent for your space</p>
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search for venues or musicians...">
+        </div>
+    </section>
+
+    <div class="categories">
+        <a href="#" class="category">
+            <div class="category-icon">🎸</div>
+            <span>Live Music Venues</span>
+        </a>
+        <a href="#" class="category">
+            <div class="category-icon">🎹</div>
+            <span>Concert Halls</span>
+        </a>
+        <a href="#" class="category">
+            <div class="category-icon">🎺</div>
+            <span>Jazz Clubs</span>
+        </a>
+        <a href="#" class="category">
+            <div class="category-icon">🎤</div>
+            <span>Open Mic</span>
+        </a>
+        <a href="#" class="category">
+            <div class="category-icon">🎼</div>
+            <span>Recording Studios</span>
+        </a>
+    </div>
+
+    <section class="recommended">
+        <h2>Featured Venues</h2>
+        <div class="cards">
+            <div class="card">
+                <div style="position: relative;">
+                    <img src="/api/placeholder/400/320" alt="Venue 1">
+                    <span class="rating">4.9 ⭐</span>
+                </div>
+                <div class="card-content">
+                    <h3>The Green Room</h3>
+                    <p>Los Angeles, CA</p>
+                </div>
+            </div>
+            <div class="card">
+                <div style="position: relative;">
+                    <img src="/api/placeholder/400/320" alt="Venue 2">
+                    <span class="rating">4.8 ⭐</span>
+                </div>
+                <div class="card-content">
+                    <h3>Jazz & Notes</h3>
+                    <p>New York, NY</p>
+                </div>
+            </div>
+            <div class="card">
+                <div style="position: relative;">
+                    <img src="/api/placeholder/400/320" alt="Venue 3">
+                    <span class="rating">5.0 ⭐</span>
+                </div>
+                <div class="card-content">
+                    <h3>Sound Stage</h3>
+                    <p>Nashville, TN</p>
+                </div>
+            </div>
+            <div class="card">
+                <div style="position: relative;">
+                    <img src="/api/placeholder/400/320" alt="Venue 4">
+                    <span class="rating">4.7 ⭐</span>
+                </div>
+                <div class="card-content">
+                    <h3>The Melody Bar</h3>
+                    <p>Austin, TX</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
